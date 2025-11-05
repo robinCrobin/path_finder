@@ -10,19 +10,29 @@ def main():
     
     matriz = []
     print("Digite os elementos da matriz:")
-    valid = {"O", "1", "S", "E"}
-    for i in range(n):
-        linha = []
-        for j in range(m):
-            while True:
-                valor = input(f"Elemento [{i}][{j}] (O, 1, S ou E): ").strip().upper()
-                if valor in valid:
-                    linha.append(valor)
-                    break
-                else:
-                    print("Valor inválido. Digite apenas: O, 1, S ou E.")
-        matriz.append(linha)
-    
+    valid = {"0", "1", "S", "E"}
+    while True:
+        matriz = []
+        print("Digite os elementos da matriz:")
+        for i in range(n):
+            linha = []
+            for j in range(m):
+                while True:
+                    valor = input(f"Elemento [{i}][{j}] (0, 1, S ou E): ").strip().upper()
+                    if valor in valid:
+                        linha.append(valor)
+                        break
+                    else:
+                        print("Valor inválido. Digite apenas: 0, 1, S ou E.")
+            matriz.append(linha)
+
+        s_count = sum(1 for linha in matriz for cel in linha if cel == "S")
+        e_count = sum(1 for linha in matriz for cel in linha if cel == "E")
+
+        if s_count == 1 and e_count == 1:
+            break
+        print(f"Matriz inválida: encontrada(s) S={s_count}, E={e_count}. A matriz deve conter exatamente 1 S e 1 E. Digite a nova matriz.\n")
+
     print("Matriz digitada:")
     for linha in matriz:
         print(" ".join(linha))
