@@ -1,4 +1,7 @@
 
+import PathFinder
+
+
 def main():
     print("Digite o tamanho da matriz (n x m): ")
     n = int(input("n: "))
@@ -36,6 +39,18 @@ def main():
     print("Matriz digitada:")
     for linha in matriz:
         print(" ".join(linha))
+    
+    start_pos = None
+    end_pos = None
+    for i in range(n):
+        for j in range(m):
+            if matriz[i][j] == 'S':
+                start_pos = (i, j)
+            elif matriz[i][j] == 'E':
+                end_pos = (i, j)
+    
+    finder = PathFinder(matriz)
+    path = finder.find_path(start_pos, end_pos)
 
 if __name__ == "__main__":
     main()
