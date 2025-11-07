@@ -1,5 +1,5 @@
 
-import PathFinder
+from PathFinder import PathFinder
 
 
 def main():
