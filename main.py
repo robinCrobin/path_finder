@@ -1,4 +1,3 @@
-
 from PathFinder import PathFinder
 
 
@@ -51,6 +50,23 @@ def main():
     
     finder = PathFinder(matriz)
     path = finder.find_path(start_pos, end_pos)
+    
+    # Exibe o resultado
+    if path:
+        print(f"\n✅ Caminho encontrado! Tamanho: {len(path)}")
+        print("Caminho:", " → ".join([f"({x},{y})" for x, y in path]))
+        
+        # Mostra matriz com o caminho marcado
+        matriz_visual = [linha[:] for linha in matriz]  # cópia
+        for i, (x, y) in enumerate(path):
+            if matriz_visual[x][y] not in ['S', 'E']:
+                matriz_visual[x][y] = '*'
+        
+        print("\nMatriz com caminho marcado:")
+        for linha in matriz_visual:
+            print(" ".join(linha))
+    else:
+        print("\n❌ Nenhum caminho encontrado!")
 
 if __name__ == "__main__":
     main()
