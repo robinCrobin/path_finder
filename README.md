@@ -4,7 +4,6 @@ Este projeto implementa o algoritmo de busca de caminho A*, em Python, para enco
 
 ## Introdução sobre o problema
 O problema central é guiar um robô de resgate através de um labirinto, representado por uma matriz 2D. O robô precisa encontrar o menor caminho possível partindo de um ponto inicial "S" até um ponto final "E".
-E é justamente para encontrar esse menor caminho que o algoritmo A* é usado.
 
 O labirinto é composto por:
 - 0: células livres, por onde é permitido o robô passar.
