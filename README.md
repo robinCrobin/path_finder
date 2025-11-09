@@ -14,6 +14,20 @@ O labirinto é composto por:
 O robô só pode se mover nas direções adjacentes, desde que ela não seja um obstáculo, ou seja, tenha o valor 1, e cada movimento tem um custo de 1. O desafio é encontrar a rota ótima (mais curta) de forma eficiente, o que é solucionado pelo algoritmo A*.
 
 ## Instruções para executar o projeto
+### Pré-requisitos:
+Ter o Python instalado. Nenhuma biblioteca externa é necessária, pois o projeto utiliza apenas módulos nativos do Python.
 
+### Execução:
+1. Clone este repositório.
+2. Abra seu terminal e navegue até a pasta do projeto.
+3. Execute o arquivo `main.py`:
+
+    No Windows execute:
+   
+    ```python main.py```
+    
+    No macOS ou Linux execute:
+   
+    ```python3 main.py```
 
 ## Funcionamento do Algoritmo A*
