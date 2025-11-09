@@ -1,3 +1,4 @@
+
 from PathFinder import PathFinder
 
 
@@ -11,7 +12,6 @@ def main():
         return
     
     matriz = []
-    print("Digite os elementos da matriz:")
     valid = {"0", "1", "S", "E"}
     while True:
         matriz = []
@@ -39,6 +39,7 @@ def main():
     for linha in matriz:
         print(" ".join(linha))
     
+    print("Buscar caminho:")
     start_pos = None
     end_pos = None
     for i in range(n):
@@ -50,23 +51,18 @@ def main():
     
     finder = PathFinder(matriz)
     path = finder.find_path(start_pos, end_pos)
-    
-    # Exibe o resultado
-    if path:
-        print(f"\n✅ Caminho encontrado! Tamanho: {len(path)}")
-        print("Caminho:", " → ".join([f"({x},{y})" for x, y in path]))
-        
-        # Mostra matriz com o caminho marcado
-        matriz_visual = [linha[:] for linha in matriz]  # cópia
-        for i, (x, y) in enumerate(path):
-            if matriz_visual[x][y] not in ['S', 'E']:
-                matriz_visual[x][y] = '*'
-        
-        print("\nMatriz com caminho marcado:")
-        for linha in matriz_visual:
-            print(" ".join(linha))
+    if path is None:
+        print("Não há caminho disponível")
     else:
-        print("\n❌ Nenhum caminho encontrado!")
+        print("Caminho na matriz: ", path)
+        
+        for r, c in path:
+            if matriz[r][c] not in ('S', 'E'):
+                matriz[r][c] = '*'
+
+        # Mostrar a matriz final
+        for linha in matriz:
+            print(' '.join(map(str, linha)))
 
 if __name__ == "__main__":
     main()
