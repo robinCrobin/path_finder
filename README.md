@@ -31,3 +31,8 @@ Ter o Python instalado. Nenhuma biblioteca externa é necessária, pois o projet
     ```python3 main.py```
 
 ## Funcionamento do Algoritmo A*
+O A* é um algoritmo de busca heurístico muito eficiente. Ele encontra o caminho mais curto ao combinar o custo real para chegar a um ponto com uma estimativa inteligente do custo restante. Assim, para decidir qual célula explorar em seguida, ele calcula uma pontuação f(n) para cada célula (nó) candidata.
+
+Essa pontuação é a soma de dois valores: `f(n) = g(n) + h(n)`, em que g(n) é o custo real do caminho percorrido desde o início ('S') até o nó atual (n). Neste caso, como cada passo custa 1, g(n) é o número de passos dados para chegar até o nó atual; h(n) é a estimativa de custo do nó atual (n) até o destino ('E'). Neste projeto, foi usado a Distância de Manhattan, que é indicada para o caso em que não se pode mover nas diagonais. E f(n) é o custo total, ou seja, a pontuação final daquele nó.
+
+O algoritmo A* usa uma fila de prioridade para manter uma lista de nós a serem explorados, e ele sempre escolhe explorar o nó que tem o menor custo "f". Essa combinação garante que o A* não perca tempo explorando caminhos ruins (graças à heurística h) e que, ao mesmo tempo, encontre o caminho mais curto (graças ao custo real g).
